@@ -1,0 +1,5 @@
+apply from: '../gradle/download.gradle'
+ext {
+  zipName = 'large_png'
+  packageName = 'png/large'
+}

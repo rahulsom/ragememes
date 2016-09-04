@@ -1,0 +1,11 @@
+plugins {
+    id "de.undercouch.download" version "3.1.1"
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply from: '../gradle/publishing.gradle'
+
+    group = 'com.github.rahulsom'
+    version = '0.1'
+}

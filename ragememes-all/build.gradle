@@ -1,0 +1,5 @@
+dependencies {
+  [/*'jpg', */'png-large', 'png-medium', 'png-small', 'svg'].each {
+    compile project(":ragememes-${it}")
+  }
+}

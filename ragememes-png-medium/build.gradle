@@ -1,0 +1,5 @@
+apply from: '../gradle/download.gradle'
+ext {
+  zipName = 'medium_png'
+  packageName = 'png/medium'
+}

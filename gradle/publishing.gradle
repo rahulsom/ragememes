@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-nexus-plugin:2.3.1"
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"
+    }
+}
+
+apply plugin: com.bmuschko.gradle.nexus.NexusPlugin
+apply plugin: io.codearte.gradle.nexus.NexusStagingPlugin
+
+modifyPom {
+    project {
+        name 'Ragememes in a jar'
+        description "Rage Memes packaged as a jar files for easy inclusion in java projects"
+        url 'https://github.com/rahulsom/ragememes'
+        inceptionYear '2016'
+
+        scm {
+            url 'https://github.com/rahulsom/ragememes'
+            connection 'scm:https://github.com/rahulsom/ragememes.git'
+            developerConnection 'scm:git://github.com/rahulsom/ragememes.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'rahulsom'
+                name 'Rahul Somasunderam'
+                email 'rahul.som@gmail.com'
+            }
+        }
+
+        issueManagement {
+            system 'Github'
+            url 'https://github.com/rahulsom/ragememes/issues'
+        }
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = true
+    javadoc = true
+}
+
+task release() {
+    description = 'Release artifacts to nexus'
+    dependsOn 'uploadArchives', 'closeAndPromoteRepository'
+    doLast {
+        println "Released $version"
+    }
+}
+project.afterEvaluate {
+    project.tasks.findByName('closeAndPromoteRepository').mustRunAfter 'uploadArchives'
+}

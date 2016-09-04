@@ -1,0 +1,45 @@
+= Ragememes
+Rahul Somasunderam <rahul.som@gmail.com>
+
+Java library to provide ragememes as classpath resources.
+
+== Description
+
+Very often you find yourself needing to express something using a Rage Meme.
+If you were trying to write Java code to do that, you'll find that there aren't any libraries that allow you to do that easily.
+
+This project aims to solve that problem.
+Now you can use Rage Memes in your code from the comfort of your IDE.
+You get static compilation too.
+
+== Usage
+
+. Include Library
+[source,gradle]
+----
+dependencies {
+  // ...
+  compile 'com.github.rahulsom:ragememes-png-large:+'
+}
+----
+. Get the resource corresponding to the meme you want
+[source,java]
+----
+import com.github.rahulsom.ragememes.png.large.LargePngRageMemes;
+// ...
+  InputStream stream = this.getClass().getClassLoader()
+        .getResourceAsStream(LargePngRageMemes.cereal_guy_newspaper_guy_l);
+----
+. Profit
+
+== Details
+
+There are 4 subprojects - `png-small`, `png-medium`, `png-large` and `svg`.
+You can import all 4 projects using the meta project `all`.
+
+== Releasing a new version
+
+[source,bash]
+----
+./gradlew release
+----
