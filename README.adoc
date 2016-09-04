@@ -41,5 +41,6 @@ You can import all 4 projects using the meta project `all`.
 
 [source,bash]
 ----
-./gradlew release
+./gradlew uploadArchives
+./gradlew closeAndPromoteRepository
 ----
