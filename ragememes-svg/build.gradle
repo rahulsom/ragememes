@@ -1,3 +1,10 @@
+plugins {
+  id("com.github.rahulsom.waena.published")
+  id("java")
+}
+
+description = "SVGs of ragememes"
+
 apply from: '../gradle/download.gradle'
 ext {
   zipName = 'svg'
