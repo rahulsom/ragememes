@@ -19,7 +19,7 @@ You get static compilation too.
 ----
 dependencies {
   // ...
-  compile 'com.github.rahulsom:ragememes-png-large:+'
+  implementation 'com.github.rahulsom:ragememes-png-large:+'
 }
 ----
 . Get the resource corresponding to the meme you want

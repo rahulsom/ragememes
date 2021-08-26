@@ -1,5 +1,13 @@
+plugins {
+  id("com.github.rahulsom.waena.published")
+  id("java")
+}
+
+description = "All sizes of ragememes"
+
 dependencies {
-  [/*'jpg', */'png-large', 'png-medium', 'png-small', 'svg'].each {
-    compile project(":ragememes-${it}")
-  }
+  api(project(":ragememes-png-large"))
+  api(project(":ragememes-png-medium"))
+  api(project(":ragememes-png-small"))
+  api(project(":ragememes-svg"))
 }
