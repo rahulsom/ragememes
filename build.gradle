@@ -13,6 +13,8 @@ contacts {
     }
 }
 
+group = 'com.github.rahulsom'
+
 subprojects {
     apply plugin: 'java'
 
